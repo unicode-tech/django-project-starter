@@ -118,6 +118,8 @@ REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': (
         'rest_framework.renderers.JSONRenderer',
     ),
+    'EXCEPTION_HANDLER': 'src.libraries.exception_handler',
+    'DEFAULT_PAGINATION_CLASS': 'src.libraries.CustomPagination',
     'PAGE_SIZE': 10,
 }
 
