@@ -32,18 +32,18 @@ class User(AbstractBaseUser, PermissionsMixin):
     name = models.CharField(max_length=255)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
-    created_date = models.DateTimeField(auto_now_add=True, null=True, blank=True)
-    modified_date = models.DateTimeField(auto_now=True, null=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+    updated_at = models.DateTimeField(auto_now=True, null=True, blank=True)
     history = HistoricalRecords()
 
     objects = UserManager()
 
     USERNAME_FIELD = 'email'
 
-    def __str__(self):
-        return self.email
-
     class Meta:
         db_table = 'users'
         verbose_name = 'User'
         verbose_name_plural = 'User'
+
+    def __str__(self):
+        return self.email
